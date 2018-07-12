@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "prettier.printWidth": 120,
+  "prettier.parser": "flow",
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true,
+  "files.eol": "\n",
+  "eslint.options": {},
+  "eslint.packageManager": "yarn",
+  "eslint.enable": true,
+  "tslint.enable": false,
+}
