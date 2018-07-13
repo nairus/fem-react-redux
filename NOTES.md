@@ -135,3 +135,14 @@ I have to disabled es-lint check with `/* eslint-disable */` annotation for not 
 3.  The `componentWillReceiveProps` method get brand new props from a parent.
 4.  The `shouldComponentUpdate` method can be used if there is performance issue.
 5.  The `componentWillUnmount` method is invoked when the component leave the DOM and to clean up stuffs.
+
+8.12 React Performance Tools
+
+Some useful methods:
+
+- [`Perf.printWasted()`](https://reactjs.org/docs/perf.html#printwasted): print an array of wasted times
+- [`Perf.printInclusive()`](https://reactjs.org/docs/perf.html#printinclusive): Prints the overall time taken
+- [`Perf.printExclusive()`](https://reactjs.org/docs/perf.html#printexclusive): don’t include the times taken to mount the components
+
+For more details see the [docs](https://reactjs.org/docs/perf.html).
+Note the addons is not supported in React 16.
