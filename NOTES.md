@@ -53,7 +53,7 @@ En mode CLI si on lance uniquement `webpack`, il va chercher le fichier de confi
 ~$ NODE_ENV=test ./node_modules/.bin/jest
 ```
 
-#### windows
+#### Windows
 
 ```bash
 c:\mooc-react>node_modules\.bin\jest
@@ -127,3 +127,11 @@ See https://flow.org for more details
 
 Pb with ESLINT and props type.
 I have to disabled es-lint check with `/* eslint-disable */` annotation for not having `no-types-missing-file-annotation` error.
+
+8.7 React Lifecycle Methods
+
+1.  The `componentWillMount` method can be used for server side rendering.
+2.  The `componentDidMount` method can be used after the DOM is fully loaded. The `window` component is available on this step.
+3.  The `componentWillReceiveProps` method get brand new props from a parent.
+4.  The `shouldComponentUpdate` method can be used if there is performance issue.
+5.  The `componentWillUnmount` method is invoked when the component leave the DOM and to clean up stuffs.
