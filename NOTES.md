@@ -47,13 +47,13 @@ En mode CLI si on lance uniquement `webpack`, il va chercher le fichier de confi
 
 ### 5.2 Running jest
 
-#### Linux
+#### On Linux
 
 ```bash
 ~$ NODE_ENV=test ./node_modules/.bin/jest
 ```
 
-#### Windows
+#### On Windows
 
 ```bash
 c:\mooc-react>node_modules\.bin\jest
@@ -82,31 +82,31 @@ yarn test -- --coverage
 
 ### 7.2 Init Flow
 
-1.  Init flow project with this command:
+1. Init flow project with this command:
 
-```bash
-yarn flow -- init
-```
+   ```bash
+   yarn flow -- init
+   ```
 
-2.  Add flow-typed
+1. Add flow-typed
 
-First add global package:
+   First add global package:
 
-```bash
-yarn global add flow-typed
-```
+   ```bash
+   yarn global add flow-typed
+   ```
 
-Then install flow-typed open source in the projet:
+   Then install flow-typed open source in the projet:
 
-```bash
-flow-typed install
-```
+   ```bash
+   flow-typed install
+   ```
 
-3.  Launch flow check:
+1. Launch flow check:
 
-```bash
-yarn flow
-```
+   ```bash
+   yarn flow
+   ```
 
 Le fichier `express_v4.x.x.js` installé via la ligne de commande est différent que celui dans le dépôt de Brian et fait échouer le test avec `flow`.
 Il faudrait creuser pourquoi !!??
@@ -121,7 +121,7 @@ npm i flow-bin -g
 
 The extension can't resolve path in local dependencies.
 
-See https://flow.org for more details
+See [https://flow.org](https://flow.org) for more details
 
 8.3 Finishing the Details Component
 
@@ -130,11 +130,11 @@ I have to disabled es-lint check with `/* eslint-disable */` annotation for not 
 
 8.7 React Lifecycle Methods
 
-1.  The `componentWillMount` method can be used for server side rendering.
-2.  The `componentDidMount` method can be used after the DOM is fully loaded. The `window` component is available on this step.
-3.  The `componentWillReceiveProps` method get brand new props from a parent.
-4.  The `shouldComponentUpdate` method can be used if there is performance issue.
-5.  The `componentWillUnmount` method is invoked when the component leave the DOM and to clean up stuffs.
+1. The `componentWillMount` method can be used for server side rendering.
+1. The `componentDidMount` method can be used after the DOM is fully loaded. The `window` component is available on this step.
+1. The `componentWillReceiveProps` method get brand new props from a parent.
+1. The `shouldComponentUpdate` method can be used if there is performance issue.
+1. The `componentWillUnmount` method is invoked when the component leave the DOM and to clean up stuffs.
 
 8.12 React Performance Tools
 
