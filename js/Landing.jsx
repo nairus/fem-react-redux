@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Search from './Search';
 
@@ -33,4 +34,6 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+const mapStateToProps = state => ({ searchTerm: state.searchTerm });
+
+export default connect(mapStateToProps)(Landing);
