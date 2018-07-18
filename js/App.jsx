@@ -17,7 +17,7 @@ const App = () => (
     <Provider store={store}>
       <div className="app">
         <Switch>
-          <Route exact path="/" component={props => <Landing shows={preload.shows} {...props} />} />
+          <Route exact path="/" component={Landing} />
           <Route path="/search" component={props => <Search shows={preload.shows} {...props} />} />
           <Route
             path="/details/:id"
