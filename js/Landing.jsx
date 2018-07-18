@@ -1,39 +1,23 @@
 // @flow
 
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Search from './Search';
+import { setSearchTerm } from './actionCreators';
 
-class Landing extends Component {
-  state = {
-    searchTerm: ''
-  };
-  handleKeyPress = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
-    // Change the state if enter key is pressed.
-    if (event.charCode === 13) {
-      this.setState({ searchTerm: event.target.value });
-    }
-  };
-  props: {
-    shows: Array<Show>
-  };
-  render() {
-    if (this.state.searchTerm) {
-      return <Search showSearch search={this.state.searchTerm} shows={this.props.shows} />;
-    }
-
-    // Otherwise, render the homepage
-    return (
-      <div className="landing">
-        <h1>svideo</h1>
-        <input type="text" placeholder="Search" onKeyPress={this.handleKeyPress} />
-        <Link to="/search">or Browse All</Link>
-      </div>
-    );
-  }
-}
+const Landing = (props: { searchTerm: string, handleSearchSearchTerm: Function }) => (
+  <div className="landing">
+    <h1>svideo</h1>
+    <input onChange={props.handleSearchSearchTerm} type="text" value={props.searchTerm} placeholder="Search" />
+    <Link to="/search">or Browse All</Link>
+  </div>
+);
 
 const mapStateToProps = state => ({ searchTerm: state.searchTerm });
+const mapDispatchToProps = (dispatch: Function) => ({
+  handleSearchSearchTerm(event) {
+    dispatch(setSearchTerm(event.target.value));
+  }
+});
 
-export default connect(mapStateToProps)(Landing);
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);
