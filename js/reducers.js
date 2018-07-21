@@ -1,3 +1,5 @@
+// @flow
+
 import { SET_SEARCH_TERM, BROWSE_ALL } from './actions';
 
 const DEFAULT_STATE = {

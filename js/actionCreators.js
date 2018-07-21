@@ -1,3 +1,5 @@
+// @flow
+
 import { SET_SEARCH_TERM, BROWSE_ALL } from './actions';
 
 export function setSearchTerm(searchTerm) {
