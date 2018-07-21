@@ -45,6 +45,8 @@ c:\mooc-react>node_modules\.bin\webpack js\ClientApp.jsx public\bundle.js
 
 En mode CLI si on lance uniquement `webpack`, il va chercher le fichier de config `webpack.config.json`.
 
+## 5. Testing React
+
 ### 5.2 Running jest
 
 #### On Linux
@@ -80,6 +82,8 @@ We can run code coverage with `jest` and `Istanbul` library:
 yarn test -- --coverage
 ```
 
+## 7. Flow
+
 ### 7.2 Init Flow
 
 1. Init flow project with this command:
@@ -111,7 +115,7 @@ yarn test -- --coverage
 Le fichier `express_v4.x.x.js` installé via la ligne de commande est différent que celui dans le dépôt de Brian et fait échouer le test avec `flow`.
 Il faudrait creuser pourquoi !!??
 
-7.3 Applying Flow
+### 7.3 Applying Flow
 
 On VSCode windows, I have to install [`vscode-flow-ide`](https://marketplace.visualstudio.com/items?itemName=gcazaciuc.vscode-flow-ide) extension and flow globaly with this command:
 
@@ -123,12 +127,14 @@ The extension can't resolve path in local dependencies.
 
 See [https://flow.org](https://flow.org) for more details
 
-8.3 Finishing the Details Component
+## 8. Data In React
+
+### 8.3 Finishing the Details Component
 
 Pb with ESLINT and props type.
 I have to disabled es-lint check with `/* eslint-disable */` annotation for not having `no-types-missing-file-annotation` error.
 
-8.7 React Lifecycle Methods
+### 8.7 React Lifecycle Methods
 
 1. The `componentWillMount` method can be used for server side rendering.
 1. The `componentDidMount` method can be used after the DOM is fully loaded. The `window` component is available on this step.
@@ -136,7 +142,7 @@ I have to disabled es-lint check with `/* eslint-disable */` annotation for not 
 1. The `shouldComponentUpdate` method can be used if there is performance issue.
 1. The `componentWillUnmount` method is invoked when the component leave the DOM and to clean up stuffs.
 
-8.12 React Performance Tools
+### 8.12 React Performance Tools
 
 Some useful methods:
 
@@ -146,3 +152,30 @@ Some useful methods:
 
 For more details see the [docs](https://reactjs.org/docs/perf.html).
 Note the addons is not supported in React 16.
+
+## 9. Redux
+
+### 9.10 Q&A Recap
+
+There is an alternative to Redux. See [MobX](https://github.com/mobxjs/mobx).
+
+### 9.13 Redux DevTools
+
+The method in Brian lesson is not working today.
+
+For the record he wrote that code:
+
+```js
+// store.js
+import { createStore, compose } from 'redux';
+import reducer from './reducers';
+
+const store = createStore(
+  reducer,
+  compose(typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension(): f => f)
+);
+
+export default store;
+```
+
+See [online docs](https://github.com/zalmoxisus/redux-devtools-extension#usage) for more details.
