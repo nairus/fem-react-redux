@@ -6,4 +6,5 @@ export function setSearchTerm(searchTerm: string) {
   return { type: SET_SEARCH_TERM, payload: searchTerm };
 }
 
+// FIXME (To compile)
 export function noop() {}
