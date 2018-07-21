@@ -4,10 +4,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import type { RouterHistory } from 'react-router-dom';
-import { setSearchTerm, browseAll } from './actionCreators';
+import { setSearchTerm } from './actionCreators';
 
 class Landing extends Component {
-  props: { searchTerm: string, handleSearchSearchTerm: Function, handleBrowseAll: Function, history: RouterHistory };
+  props: {
+    searchTerm: string,
+    handleSearchTermChange: Function,
+    history: RouterHistory
+  };
   goToSearch = (event: SyntheticEvent) => {
     event.preventDefault();
     this.props.history.push('/search');
@@ -18,13 +22,13 @@ class Landing extends Component {
         <h1>svideo</h1>
         <form onSubmit={this.goToSearch}>
           <input
-            onChange={this.props.handleSearchSearchTerm}
-            type="text"
+            onChange={this.props.handleSearchTermChange}
             value={this.props.searchTerm}
+            type="text"
             placeholder="Search"
           />
         </form>
-        <Link to="/search" onClick={this.props.handleBrowseAll}>or Browse All</Link>
+        <Link to="/search">or Browse All</Link>
       </div>
     );
   }
@@ -32,11 +36,8 @@ class Landing extends Component {
 
 const mapStateToProps = state => ({ searchTerm: state.searchTerm });
 const mapDispatchToProps = (dispatch: Function) => ({
-  handleSearchSearchTerm(event) {
+  handleSearchTermChange(event) {
     dispatch(setSearchTerm(event.target.value));
-  },
-  handleBrowseAll(event) {
-    dispatch(browseAll(event.target.value));
   }
 });
 

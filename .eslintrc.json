@@ -20,9 +20,9 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true,
-    "jest": true
+    "node": true
   },
+  "jest": true,
   "rules": {
     "linebreak-style": "off"
   }
