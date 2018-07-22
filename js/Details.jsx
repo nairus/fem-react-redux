@@ -1,4 +1,5 @@
 // @Flow
+/* eslint-disable flowtype/no-types-missing-file-annotation */
 
 import React, { Component } from 'react';
 import axios from 'axios';
@@ -10,13 +11,11 @@ class Details extends Component {
     apiData: { imdbRating: '' }
   };
   componentDidMount() {
-    axios
-      .get(`http://localhost:3000/${this.props.show.imdbID}`)
-      .then((/*eslint-disable*/ response: { data: { rating: string } }) => {
-        this.setState({ apiData: response.data });
-      });
+    axios.get(`http://localhost:3000/${this.props.show.imdbID}`).then((response: { data: { rating: string } }) => {
+      this.setState({ apiData: response.data });
+    });
   }
-  /*eslint-disable*/ props: {
+  props: {
     show: Show
   };
   render() {
