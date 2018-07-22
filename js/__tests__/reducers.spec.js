@@ -1,3 +1,5 @@
+// @flow
+
 import reducers from '../reducers';
 
 test('SET_SEARCH_TERM', () => {
