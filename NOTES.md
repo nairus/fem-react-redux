@@ -179,3 +179,28 @@ export default store;
 ```
 
 See [online docs](https://github.com/zalmoxisus/redux-devtools-extension#usage) for more details.
+
+## 12 Universal Rendering
+
+### 12.4 Running the Node Server
+
+First I have to build the App to make it work:
+
+```bash
+yarn build
+```
+
+Then for running the node node server there is a difference between `Linux` and `Windows`.
+
+- Linux mode:
+
+```bash
+~/mooc/fem$ NODE_ENV=server node server.js
+```
+
+- Windows mode:
+
+```bash
+C:\mooc\fem> set NODE_ENV=server
+C:\mooc\fem> node server.js
+```
