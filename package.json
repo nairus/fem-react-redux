@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "start": "start.cmd",
     "api": "node ratingsAPI.js",
     "build": "webpack --display-error-details",
     "dev": "webpack-dev-server",

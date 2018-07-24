@@ -25,8 +25,7 @@ J'ai dû installer en global toutes ces dépendances:
 
 ### 2.4 Configuring webpack
 
-On peut utiliser la config par défaut de webpack pour builder notre App.
-
+On peut utiliser la config par défaut de webpack pour builder notre App.  
 Il suffit de préciser le fichier d'entrée et de sortie comme ci-dessous:
 
 #### Linux
@@ -112,7 +111,7 @@ yarn test -- --coverage
    yarn flow
    ```
 
-Le fichier `express_v4.x.x.js` installé via la ligne de commande est différent que celui dans le dépôt de Brian et fait échouer le test avec `flow`.
+Le fichier `express_v4.x.x.js` installé via la ligne de commande est différent que celui dans le dépôt de Brian et fait échouer le test avec `flow`.  
 Il faudrait creuser pourquoi !!??
 
 ### 7.3 Applying Flow
@@ -131,7 +130,7 @@ See [https://flow.org](https://flow.org) for more details
 
 ### 8.3 Finishing the Details Component
 
-Pb with ESLINT and props type.
+Pb with ESLINT and props type.  
 I have to disabled es-lint check with `/* eslint-disable */` annotation for not having `no-types-missing-file-annotation` error.
 
 ### 8.7 React Lifecycle Methods
@@ -161,8 +160,7 @@ There is an alternative to Redux. See [MobX](https://github.com/mobxjs/mobx).
 
 ### 9.13 Redux DevTools
 
-The method in Brian lesson is not working today.
-
+The method in Brian lesson is not working today.  
 For the record he wrote that code:
 
 ```js
@@ -204,3 +202,7 @@ Then for running the node node server there is a difference between `Linux` and 
 C:\mooc\fem> set NODE_ENV=server
 C:\mooc\fem> node server.js
 ```
+
+I don't know why it does not work in one line command (see [here](https://ss64.com/nt/syntax-redirection.html)).  
+The `NODE_ENV` variable is not set.  
+I had to write a `.cmd` file to launch the server with yarn.

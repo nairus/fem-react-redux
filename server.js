@@ -10,7 +10,7 @@ const fs = require('fs');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpack = require('webpack');
-const config = require('./webpack.config')
+const config = require('./webpack.server.config')
 const App = require('./js/App').default;
 
 const StaticRouter = ReactRouter.StaticRouter;
