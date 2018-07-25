@@ -5,9 +5,9 @@
 ::
 @SET NODE_ENV=server
 @IF EXIST "%~dp0\node.exe" (
-  "%~dp0\node.exe"  "%~dp0\server.js" %*
+  "%~dp0\node.exe"  "--trace-warnings"  "%~dp0\server.js" %*
 ) ELSE (
   @SETLOCAL
   @SET PATHEXT=%PATHEXT:;.JS;=;%
-  node  "%~dp0\server.js" %*
+  node --trace-warnings  "%~dp0\server.js" %*
 )

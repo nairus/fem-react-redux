@@ -18,12 +18,14 @@
   "env": {
     "test": {
       "plugins": [
-        "babel-plugin-transform-es2015-modules-commonjs"
+        "babel-plugin-transform-es2015-modules-commonjs",
+        "babel-plugin-dynamic-import-node"
       ]
     },
     "server": {
       "plugins": [
-        "babel-plugin-transform-es2015-modules-commonjs"
+        "babel-plugin-transform-es2015-modules-commonjs",
+        "babel-plugin-dynamic-import-node"
       ]
     }
   }

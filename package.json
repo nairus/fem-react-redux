@@ -2,7 +2,8 @@
   "scripts": {
     "start": "start.cmd",
     "api": "node ratingsAPI.js",
-    "build": "webpack --display-error-details",
+    "build": "build.cmd",
+    "build:dev": "build.dev.cmd",
     "dev": "webpack-dev-server",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
