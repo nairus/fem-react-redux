@@ -45,4 +45,5 @@ const mapDispatchToProps = (dispatch: Function) => ({
   }
 });
 
+export const Unwrapped = Landing;
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);

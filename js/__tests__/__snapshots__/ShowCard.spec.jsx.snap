@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing render correctly 1`] = `
+<Styled(Link)
+  className="show-card"
+  to="/details/tt0944947"
+>
+  <styled.img
+    alt="Game of Thrones Show poster"
+    src="/public/img/posters/got.jpg"
+  />
+  <div>
+    <h3>
+      Game of Thrones
+    </h3>
+    <h4>
+      (
+      2011–
+      )
+    </h4>
+    <p>
+      Nine noble families fight for control over the mythical lands of Westeros, while a forgotten race returns after being dormant for thousands of years.
+    </p>
+  </div>
+</Styled(Link)>
+`;

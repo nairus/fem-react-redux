@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing render correctly 1`] = `
+<div
+  className="details"
+>
+  <Connect(Header) />
+  <section>
+    <h1>
+      Game of Thrones
+    </h1>
+    <h2>
+      (
+      2011–
+      )
+    </h2>
+    <Spinner />
+    <img
+      alt="Poster for Game of Thrones"
+      src="/public/img/posters/got.jpg"
+    />
+    <p>
+      Nine noble families fight for control over the mythical lands of Westeros, while a forgotten race returns after being dormant for thousands of years.
+    </p>
+  </section>
+  <div>
+    <iframe
+      frameBorder="0"
+      src="https://www.youtube-nocookie.com/embed/giYeaKsXnsI?rel=0&amp;controls=0&amp;showinfo=0"
+      title="Trailer for Game of Thrones"
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner render correctly 1`] = `
+<styled.img
+  alt="loading indicator"
+  src="/public/img/loading.png"
+/>
+`;
