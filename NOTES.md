@@ -111,7 +111,6 @@ yarn test -- --coverage
    yarn flow
    ```
 
-Le fichier `express_v4.x.x.js` installé via la ligne de commande est différent que celui dans le dépôt de Brian et fait échouer le test avec `flow`.  
 The installed file `express_v4.x.x.js` in CLI mode is different from the Brian repository and it fails the `flow` process.  
 I need to go deeper to understand why !! ??
 
