@@ -1,14 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const config = {
+module.exports = {
   context: __dirname,
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './js/ClientApp.jsx'
-  ],
+  entry: ['webpack-hot-middleware/client?path=__webpacl_hmr&timeout=2000', './js/ClientApp.jsx'],
   devtool: 'cheap-eval-source-map',
   output: {
     path: path.join(__dirname, 'public'),
@@ -21,11 +16,7 @@ const config = {
     historyApiFallback: true
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
-    alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat'
-    }
+    extensions: ['.js', '.jsx', '.json']
   },
   stats: {
     colors: true,
@@ -43,17 +34,8 @@ const config = {
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
-        include: [path.resolve('js'), path.resolve('node_modules/preact-compat/src')]
+        loader: 'babel-loader'
       }
     ]
   }
 };
-
-if (process.env.NODE_ENV === 'production') {
-  config.entry = './js/ClientApp.jsx';
-  config.devtool = false;
-  config.plugins = []; // unecessary ? webpack is smart enough not to load dev plugins in production env.
-}
-
-module.exports = config;

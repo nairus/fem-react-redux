@@ -11,12 +11,21 @@
   ],
   "plugins": [
     "react-hot-loader/babel",
+    "babel-plugin-syntax-dynamic-import",
+    "babel-plugin-dynamic-import-webpack",
     "babel-plugin-transform-class-properties"
   ],
   "env": {
     "test": {
       "plugins": [
-        "babel-plugin-transform-es2015-modules-commonjs"
+        "babel-plugin-transform-es2015-modules-commonjs",
+        "babel-plugin-dynamic-import-node"
+      ]
+    },
+    "server": {
+      "plugins": [
+        "babel-plugin-transform-es2015-modules-commonjs",
+        "babel-plugin-dynamic-import-node"
       ]
     }
   }

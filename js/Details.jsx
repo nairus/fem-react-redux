@@ -1,7 +1,9 @@
 // @Flow
+/* eslint-disable flowtype/no-types-missing-file-annotation */
 
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import getAPIDetails from './asyncActions';
 import Header from './Header';
 import Spinner from './Spinner';
 
@@ -10,20 +12,20 @@ class Details extends Component {
     apiData: { imdbRating: '' }
   };
   componentDidMount() {
-    axios
-      .get(`http://localhost:3000/${this.props.show.imdbID}`)
-      .then((/*eslint-disable*/ response: { data: { rating: string } }) => {
-        this.setState({ apiData: response.data });
-      });
+    if (!this.props.rating) {
+      this.props.getAPIDetails();
+    }
   }
-  /*eslint-disable*/ props: {
-    show: Show
+  props: {
+    show: Show,
+    rating: string,
+    getAPIDetails: Function
   };
   render() {
     const { title, description, year, poster, trailer } = this.props.show;
     let ratingComponent;
-    if (this.state.apiData.rating) {
-      ratingComponent = <h3>{this.state.apiData.rating}</h3>;
+    if (this.props.rating) {
+      ratingComponent = <h3>{this.props.rating}</h3>;
     } else {
       ratingComponent = <Spinner />;
     }
@@ -49,4 +51,17 @@ class Details extends Component {
   }
 }
 
-export default Details;
+const mapStateToProps = (state, ownProps) => {
+  const apiData = state.apiData[ownProps.show.imdbID] ? state.apiData[ownProps.show.imdbID] : {};
+  return {
+    rating: apiData.rating
+  };
+};
+
+const mapDispatchToProps = (dispatch: Function, ownProps) => ({
+  getAPIDetails() {
+    dispatch(getAPIDetails(ownProps.show.imdbID));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

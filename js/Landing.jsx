@@ -1,36 +1,48 @@
 // @flow
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Search from './Search';
+import type { RouterHistory } from 'react-router-dom';
+import { setSearchTerm } from './actionCreators';
 
 class Landing extends Component {
-  state = {
-    searchTerm: ''
-  };
-  handleKeyPress = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
-    // Change the state if enter key is pressed.
-    if (event.charCode === 13) {
-      this.setState({ searchTerm: event.target.value });
-    }
-  };
   props: {
-    shows: Array<Show>
+    searchTerm: string,
+    handleSearchTermChange: Function,
+    handleBrowseAll: Function,
+    history: RouterHistory
+  };
+  goToSearch = (event: SyntheticEvent) => {
+    event.preventDefault();
+    this.props.history.push('/search');
   };
   render() {
-    if (this.state.searchTerm) {
-      return <Search showSearch search={this.state.searchTerm} shows={this.props.shows} />;
-    }
-
-    // Otherwise, render the homepage
     return (
       <div className="landing">
         <h1>svideo</h1>
-        <input type="text" placeholder="Search" onKeyPress={this.handleKeyPress} />
-        <Link to="/search">or Browse All</Link>
+        <form onSubmit={this.goToSearch}>
+          <input
+            onChange={this.props.handleSearchTermChange}
+            value={this.props.searchTerm}
+            type="text"
+            placeholder="Search"
+          />
+        </form>
+        <Link to="/search" onClick={this.props.handleBrowseAll}>or Browse All</Link>
       </div>
     );
   }
 }
 
-export default Landing;
+const mapStateToProps = state => ({ searchTerm: state.searchTerm });
+const mapDispatchToProps = (dispatch: Function) => ({
+  handleSearchTermChange(event) {
+    dispatch(setSearchTerm(event.target.value));
+  },
+  handleBrowseAll() {
+    dispatch(setSearchTerm(''));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);

@@ -25,8 +25,7 @@ J'ai dû installer en global toutes ces dépendances:
 
 ### 2.4 Configuring webpack
 
-On peut utiliser la config par défaut de webpack pour builder notre App.
-
+On peut utiliser la config par défaut de webpack pour builder notre App.  
 Il suffit de préciser le fichier d'entrée et de sortie comme ci-dessous:
 
 #### Linux
@@ -45,15 +44,17 @@ c:\mooc-react>node_modules\.bin\webpack js\ClientApp.jsx public\bundle.js
 
 En mode CLI si on lance uniquement `webpack`, il va chercher le fichier de config `webpack.config.json`.
 
+## 5. Testing React
+
 ### 5.2 Running jest
 
-#### Linux
+#### On Linux
 
 ```bash
 ~$ NODE_ENV=test ./node_modules/.bin/jest
 ```
 
-#### Windows
+#### On Windows
 
 ```bash
 c:\mooc-react>node_modules\.bin\jest
@@ -80,38 +81,40 @@ We can run code coverage with `jest` and `Istanbul` library:
 yarn test -- --coverage
 ```
 
+## 7. Flow
+
 ### 7.2 Init Flow
 
-1.  Init flow project with this command:
+1. Init flow project with this command:
 
-```bash
-yarn flow -- init
-```
+   ```bash
+   yarn flow -- init
+   ```
 
-2.  Add flow-typed
+1. Add flow-typed
 
-First add global package:
+   First add global package:
 
-```bash
-yarn global add flow-typed
-```
+   ```bash
+   yarn global add flow-typed
+   ```
 
-Then install flow-typed open source in the projet:
+   Then install flow-typed open source in the projet:
 
-```bash
-flow-typed install
-```
+   ```bash
+   flow-typed install
+   ```
 
-3.  Launch flow check:
+1. Launch flow check:
 
-```bash
-yarn flow
-```
+   ```bash
+   yarn flow
+   ```
 
-Le fichier `express_v4.x.x.js` installé via la ligne de commande est différent que celui dans le dépôt de Brian et fait échouer le test avec `flow`.
+Le fichier `express_v4.x.x.js` installé via la ligne de commande est différent que celui dans le dépôt de Brian et fait échouer le test avec `flow`.  
 Il faudrait creuser pourquoi !!??
 
-7.3 Applying Flow
+### 7.3 Applying Flow
 
 On VSCode windows, I have to install [`vscode-flow-ide`](https://marketplace.visualstudio.com/items?itemName=gcazaciuc.vscode-flow-ide) extension and flow globaly with this command:
 
@@ -121,22 +124,24 @@ npm i flow-bin -g
 
 The extension can't resolve path in local dependencies.
 
-See https://flow.org for more details
+See [https://flow.org](https://flow.org) for more details
 
-8.3 Finishing the Details Component
+## 8. Data In React
 
-Pb with ESLINT and props type.
+### 8.3 Finishing the Details Component
+
+Pb with ESLINT and props type.  
 I have to disabled es-lint check with `/* eslint-disable */` annotation for not having `no-types-missing-file-annotation` error.
 
-8.7 React Lifecycle Methods
+### 8.7 React Lifecycle Methods
 
-1.  The `componentWillMount` method can be used for server side rendering.
-2.  The `componentDidMount` method can be used after the DOM is fully loaded. The `window` component is available on this step.
-3.  The `componentWillReceiveProps` method get brand new props from a parent.
-4.  The `shouldComponentUpdate` method can be used if there is performance issue.
-5.  The `componentWillUnmount` method is invoked when the component leave the DOM and to clean up stuffs.
+1. The `componentWillMount` method can be used for server side rendering.
+1. The `componentDidMount` method can be used after the DOM is fully loaded. The `window` component is available on this step.
+1. The `componentWillReceiveProps` method get brand new props from a parent.
+1. The `shouldComponentUpdate` method can be used if there is performance issue.
+1. The `componentWillUnmount` method is invoked when the component leave the DOM and to clean up stuffs.
 
-8.12 React Performance Tools
+### 8.12 React Performance Tools
 
 Some useful methods:
 
@@ -146,3 +151,58 @@ Some useful methods:
 
 For more details see the [docs](https://reactjs.org/docs/perf.html).
 Note the addons is not supported in React 16.
+
+## 9. Redux
+
+### 9.10 Q&A Recap
+
+There is an alternative to Redux. See [MobX](https://github.com/mobxjs/mobx).
+
+### 9.13 Redux DevTools
+
+The method in Brian lesson is not working today.  
+For the record he wrote that code:
+
+```js
+// store.js
+import { createStore, compose } from 'redux';
+import reducer from './reducers';
+
+const store = createStore(
+  reducer,
+  compose(typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension(): f => f)
+);
+
+export default store;
+```
+
+See [online docs](https://github.com/zalmoxisus/redux-devtools-extension#usage) for more details.
+
+## 12 Universal Rendering
+
+### 12.4 Running the Node Server
+
+First I have to build the App to make it work:
+
+```bash
+yarn build
+```
+
+Then for running the node node server there is a difference between `Linux` and `Windows`.
+
+- Linux mode:
+
+```bash
+~/mooc/fem$ NODE_ENV=server node server.js
+```
+
+- Windows mode:
+
+```bash
+C:\mooc\fem> set NODE_ENV=server
+C:\mooc\fem> node server.js
+```
+
+I don't know why it does not work in one line command (see [here](https://ss64.com/nt/syntax-redirection.html)).  
+The `NODE_ENV` variable is not set.  
+I had to write a `.cmd` file to launch the server with yarn.

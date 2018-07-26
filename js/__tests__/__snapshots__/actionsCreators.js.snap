@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addAPIData 1`] = `
+Object {
+  "payload": Object {
+    "description": "Nine noble families fight for control over the mythical lands of Westeros, while a forgotten race returns after being dormant for thousands of years.",
+    "imdbID": "tt0944947",
+    "poster": "got.jpg",
+    "title": "Game of Thrones",
+    "trailer": "giYeaKsXnsI",
+    "year": "2011–",
+  },
+  "type": "ADD_API_DATA",
+}
+`;
+
+exports[`setSearchTerm 1`] = `
+Object {
+  "payload": "New York",
+  "type": "SET_SEARCH_TERM",
+}
+`;
