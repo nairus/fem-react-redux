@@ -1,18 +1,18 @@
 # Notes perso
 
-For more details see => [bholf cource](https://btholt.github.io/complete-intro-to-react/)
+For more details see => [btholt course](https://btholt.github.io/complete-intro-to-react/)
 
 ## 1. Complete Intro To React V3
 
 ### 1.2 Yarn Dependency Manager
 
-Installation de [`NVM`](https://github.com/coreybutler/nvm-windows) pour windows afin de basculer sur node6, sinon impossible de builder.
+Install of [`NVM`](https://github.com/coreybutler/nvm-windows) for windows to switch on node6, otherwise it can't build.
 
 ## 2. Tools
 
 ### 2.2 ESLint
 
-J'ai dû installer en global toutes ces dépendances:
+I had to install all these dependencies globally:
 
 - eslint@3.19.0
 - eslint-config-airbnb@15.0.1
@@ -25,8 +25,8 @@ J'ai dû installer en global toutes ces dépendances:
 
 ### 2.4 Configuring webpack
 
-On peut utiliser la config par défaut de webpack pour builder notre App.  
-Il suffit de préciser le fichier d'entrée et de sortie comme ci-dessous:
+The default webpack config can be used by default to build our App.  
+We just need to add the entry and output files like below:
 
 #### Linux
 
@@ -42,7 +42,7 @@ c:\mooc-react>node_modules\.bin\webpack js\ClientApp.jsx public\bundle.js
 
 ### 2.6 Configuring webpack
 
-En mode CLI si on lance uniquement `webpack`, il va chercher le fichier de config `webpack.config.json`.
+In CLI mode, if we launch only `webpack`, it seek the config file `webpack.config.json`.
 
 ## 5. Testing React
 
@@ -112,7 +112,8 @@ yarn test -- --coverage
    ```
 
 Le fichier `express_v4.x.x.js` installé via la ligne de commande est différent que celui dans le dépôt de Brian et fait échouer le test avec `flow`.  
-Il faudrait creuser pourquoi !!??
+The installed file `express_v4.x.x.js` in CLI mode is different from the Brian repository and it fails the `flow` process.  
+I need to go deeper to understand why !! ??
 
 ### 7.3 Applying Flow
 
